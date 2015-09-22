@@ -1,8 +1,8 @@
 import iSense
 
 # Get a Project Object
-my_project = iSense.Project(1200)
-user_credentials = iSense.Credentials(username="your email", password="your password")
+my_project = iSense.Project(989)
+user_credentials = iSense.Credentials(username="t@t.t", password="t")
 
 # Print some info about the project
 print("Project id:")
@@ -32,8 +32,9 @@ data_set_array = my_project.getDataSets()
 for data_set in data_set_array:
 	print(data_set.getName())
 	print(data_set.getData())
-
-
+print("Data set by name:")
+print(data_set_array)
+raw_input("HI")
 # Prints the data from the first data set that is assosiated with the first field
 data_set = data_set_array[0]
 field = field_array[0]
@@ -85,16 +86,16 @@ print("Data From DS uploaded with key:")
 print(ds_from_key.getData())
 
 # Append Data
-# data_to_be_appended = {str(num_field.getId()): [4] }
-# new_ds.appendData(data_to_be_appended, user_credentials)
-# print("Data user uploaded after appending 4:")
-# print(new_ds.getData())
+data_to_be_appended = {str(num_field.getId()): [4] }
+new_ds.appendData(data_to_be_appended, user_credentials)
+print("Data user uploaded after appending 4:")
+print(new_ds.getData())
 
-# data_to_be_appended = {str(num_field.getId()): [4] }
-# ds_from_key.appendData(data_to_be_appended, key_credentials)
-# print("Data uploaded with key after appending 4:")
-# print(ds_from_key.getData())
-
+data_to_be_appended = {str(num_field.getId()): [4] }
+ds_from_key.appendData(data_to_be_appended, key_credentials)
+print("Data uploaded with key after appending 4:")
+print(ds_from_key.getData())
+raw_input("HI")
 # Editing Data from 1, 2, 3, 4 -> 5, 6, 7, 8
 data_to_be_edited = {str(num_field.getId()): [5, 6, 7, 8] }
 new_ds.editData(data_to_be_edited, user_credentials)

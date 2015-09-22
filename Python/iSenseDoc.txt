@@ -1,0 +1,247 @@
+Help on module iSense:
+
+NAME
+    iSense
+
+FILE
+    /home/tyler/iSENSE-API/Python/iSense.py
+
+CLASSES
+    __builtin__.object
+        Credentials
+        DataSet
+        Field
+        Project
+    exceptions.Exception(exceptions.BaseException)
+        ISenseCredentialsException
+    
+    class Credentials(__builtin__.object)
+     |  # Credentials requires either (username and password) OR (key and contrib_name)
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, username=None, password=None, contrib_key=None, contrib_name=None)
+     |      # Sets initial values to none        
+     |  
+     |  getContribKey(self)
+     |      # 
+     |      
+     |  getContribName(self)
+     |  
+     |  getPassword(self)
+     |  
+     |  getUsername(self)
+     |  
+     |  isKey(self)
+     |      # Check if the credentials are a keypyt
+     |  
+     |  isUser(self)
+     |      # Check if the credentials are for a user
+     |  
+    
+    class DataSet(__builtin__.object)
+     |  Methods defined here:
+     |  
+     |  __init__(self, dictionary)
+     |      # Initializes values for id, name, url, path, createdAt, fieldCount, datapointCound, displayURL and data
+     |  
+     |  appendData(self, data_dictionary, credentials)
+     |      # given another data object it will append it to this data set
+     |  
+     |  editData(self, data_dictionary, credentials)
+     |      # Will edit the data
+     |  
+     |  getCreationTime(self)
+     |  
+     |  getData(self)
+     |  
+     |  getDataByField(self, field)
+     |  
+     |  getDataPointCound(self)
+     |  
+     |  getDisplayUrl(self)
+     |  
+     |  getFieldCount(self)
+     |  
+     |  getId(self)
+     |  
+     |  getName(self)
+     |  
+     |  getPath(self)
+     |  
+     |  refresh(self)
+     |      # Refresh pulls down the data sets latest data from isense
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class Field(__builtin__.object)
+     |  Methods defined here:
+     |  
+     |  __init__(self, field_id, name, field_type, unit='', restrictions=[])
+     |  
+     |  getId(self)
+     |  
+     |  getName(self)
+     |  
+     |  getRestrictions(self)
+     |  
+     |  getType(self)
+     |  
+     |  getUnit(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ISenseCredentialsException(exceptions.Exception)
+     |  Method resolution order:
+     |      ISenseCredentialsException
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, msg)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.Exception:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(...)
+     |      x.__str__() <==> str(x)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+    
+    class Project(__builtin__.object)
+     |  Methods defined here:
+     |  
+     |  __init__(self, project_id)
+     |  
+     |  addField(self, credentials, name, fieldType, other)
+     |      # Other can be None, units if field is a number, or an array of text restrictions if the field is a text field
+     |  
+     |  addKey(self, credentials, label, key)
+     |  
+     |  createDataSet(self, title, data, credentials)
+     |  
+     |  getContent(self)
+     |  
+     |  getCreationTime(self)
+     |  
+     |  getCreationTimeInWords(self)
+     |  
+     |  getDataByField(self, field)
+     |  
+     |  getDataSetById(self, data_id)
+     |  
+     |  getDataSetByName(self, name)
+     |  
+     |  getDataSetCount(self)
+     |  
+     |  getDataSetIds(self)
+     |  
+     |  getDataSets(self)
+     |  
+     |  getFeatured(self)
+     |  
+     |  getFieldCount(self)
+     |  
+     |  getFieldIds(self)
+     |  
+     |  getFields(self)
+     |  
+     |  getHidden(self)
+     |  
+     |  getId(self)
+     |  
+     |  getLikeCount(self)
+     |  
+     |  getName(self)
+     |  
+     |  getPath(self)
+     |  
+     |  getUrl(self)
+     |  
+     |  ownerName(self)
+     |  
+     |  ownerUrl(self)
+     |  
+     |  refresh(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+FUNCTIONS
+    createProject(name, credentials)
+
+DATA
+    LATITUDE = 4
+    LONGITUDE = 5
+    NUMBER = 2
+    TEXT = 3
+    TIMESTAMP = 1
+
+

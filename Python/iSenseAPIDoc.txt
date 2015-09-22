@@ -1,0 +1,58 @@
+Help on module iSenseAPI:
+
+NAME
+    iSenseAPI
+
+FILE
+    /home/tyler/iSENSE-API/Python/iSenseAPI.py
+
+FUNCTIONS
+    appendDataSet(email, password, dataSetId, data)
+        # Appends to an existing data set (you must be the owner)
+    
+    appendDataSetWithKey(contribKey, dataSetId, data)
+        # Appends to an existing data set (it must have been uploaded with the same key)
+    
+    createContributorKey(email, password, projId, name, key)
+        # Must be the owner of the project to create a key
+    
+    createField(email, password, projectId, name, fieldType, other)
+        # Name is field name, type is field type (number, text, timestamp, location) 
+        # location will create lat and long
+        # Other will be units if field type is number
+        # Other will be text restrictions if field type is text
+        # Else other will be ignored
+    
+    createProject(email, password, name)
+        # Creates a New Project
+    
+    editDataSet(email, password, dataSetId, data)
+        # Replaces an existing data set's data with new data (You must be the owner)
+    
+    editDataSetWithKey(contribKey, dataSetId, data)
+        # Replaces an existing data set's data with new data (You must be the owner or be using the same key it was uploaded with)
+    
+    getDataSet(dataSetId)
+        # Gets a data set
+    
+    getField(fieldId)
+        # Gets field info
+    
+    getProject(projID, recur=False)
+        # Gets info about a project, if recur is true it returns extra info
+    
+    uploadDataSet(email, password, projId, title, data)
+        # Uploads a new data set with an email and password
+    
+    uploadDataSetWithKey(contribKey, contribName, projId, title, data)
+        # Uploads a new data set with a key
+
+Constants
+    BASE_URL = 'https://isenseproject.org/api/v1/'
+    LATITUDE = 4
+    LONGITUDE = 5
+    NUMBER = 2
+    TEXT = 3
+    TIMESTAMP = 1
+
+

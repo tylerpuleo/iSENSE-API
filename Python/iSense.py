@@ -264,15 +264,20 @@ class DataSet(object):
 
 class Field(object):
     def __init__(self, field_id, name, field_type, unit="", restrictions=[]):
+        print "YO"
+
         self.__id = field_id
         self.__name = name
         self.__type = field_type
         self.__restrictions = restrictions
         self.__unit = unit
-
     def getType(self):
-        return self.__type
-
+        try:
+            return self.__type
+        except IndexError:
+            print "OOPS"
+        else:
+            print "YO"
     def getName(self):
         return self.__name
 
